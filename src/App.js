@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import NavBar from "./components/navbar";
 import Counters from "./components/counters";
 import "./App.css";
+import InputForm from "./components/input";
+
 import Counter from "./components/counter";
 import { render } from "@testing-library/react";
 
@@ -14,6 +16,7 @@ class App extends Component {
       { id: 4, value: 0, name: "Fruits" },
       { id: 5, value: 0, name: "Vegetables" },
     ],
+    newId: 6,
     items: ["apple", "banana", "grape"],
   };
   resetAll = () => {
@@ -22,6 +25,20 @@ class App extends Component {
       itr.value = 0;
     });
     this.setState(counters);
+    // console.log(counters);
+  };
+
+  appendItem = (itemName) => {
+    // console.log(itemName);
+    let counters = [
+      ...this.state.counters,
+      {
+        id: this.state.newId++,
+        value: 0,
+        name: itemName,
+      },
+    ];
+    this.setState({ counters });
     // console.log(counters);
   };
 
@@ -55,6 +72,7 @@ class App extends Component {
           }
         />
         <main className="container">
+          <InputForm appendItem={this.appendItem} />
           <Counters
             counters={this.state.counters}
             items={this.state.items}

@@ -4,14 +4,14 @@ import Counter from "./counter";
 class counters extends Component {
   render() {
     return (
-      <div>
+      <span>
         <button
           onClick={this.props.resetAll}
           className="btn btn-primary "
           style={{
             backgroundColor: "magenta",
-            margin: 5,
-            marginLeft: "20em",
+            // margin: 5,
+            // marginLeft: "20em",
           }}
         >
           Reset
@@ -28,7 +28,7 @@ class counters extends Component {
             decreaseProp={this.props.decreaseValue}
           />
         ))}
-      </div>
+      </span>
     );
   }
 }
