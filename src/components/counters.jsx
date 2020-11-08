@@ -26,6 +26,10 @@ class counters extends Component {
             onDelete={this.props.deleteItem}
             increaseProp={this.props.increaseValue}
             decreaseProp={this.props.decreaseValue}
+            rate={itr.rate}
+            changeRate={this.props.changeRate}
+            isRateEdit={itr.isRateEdit}
+            toggleRate={this.props.toggleRate}
           />
         ))}
       </span>

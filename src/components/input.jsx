@@ -52,16 +52,30 @@ class InputForm extends Component {
               X
             </span>
           </button>
-          <p style={{ paddingTop: 20 }}>Enter the item: </p>
-          <input name="itemName" type="text" onChange={this.myChangeHandler} />
+          <p style={{ paddingTop: 20 }}>Enter the item and it's rate: </p>
+          <input
+            style={{ width: 150 }}
+            placeholder="Item name"
+            name="itemName"
+            type="text"
+            onChange={this.myChangeHandler}
+          />
+          <input style={{ width: 80 }} placeholder="Rate" type="number"></input>
           <button type="submit">SUBMIT</button>
         </form>
       );
   };
 
   mySubmitHandler = (event) => {
-    if (!event.target[1].value) alert("Empty");
-    this.props.appendItem(event.target[1].value);
+    if (!event.target[1].value) {
+      alert("Invalid Name");
+      return;
+    }
+    if (event.target[2].value < 1) {
+      alert("Invalid Rate !!!");
+      return;
+    }
+    this.props.appendItem(event.target[1].value, event.target[2].value);
     this.setState({ isToggle: true });
   };
   excapeAdd = () => {

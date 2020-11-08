@@ -23,7 +23,7 @@ class NavBar extends Component {
           style={this.styleForCount}
           className="badge badge-pill badge-secondary m-2"
         >
-          {this.props.positiveTotalCount}
+          Number of items : {this.props.positiveTotalCount}
         </span>
       </nav>
     );

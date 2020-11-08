@@ -30,9 +30,11 @@ class Counter extends Component {
               padding: 10,
               paddingTop: 20,
               paddingBottom: 20,
+              position: "relative",
             }}
           >
             {this.props.name}
+            {this.EditAndDisplayRate()}
           </span>
           <button
             onClick={this.incrementCounter}
@@ -70,6 +72,51 @@ class Counter extends Component {
       paddingTop: 8,
     };
   };
+
+  EditAndDisplayRate() {
+    if (this.props.isRateEdit)
+      return (
+        <form
+          onSubmit={(event) =>
+            this.props.changeRate(event.target[0].value, this.props.id)
+          }
+          style={{
+            fontSize: 10,
+            borderRadius: "50%",
+            display: "inline-block",
+            position: "absolute",
+            top: 1,
+            right: 1,
+          }}
+        >
+          <input
+            placeholder="Rate"
+            style={{
+              width: 70,
+            }}
+            type="number"
+          />
+          <button type="submit">Submit</button>
+        </form>
+      );
+    else
+      return (
+        <button
+          class="btn btn-sm btn-primary"
+          onClick={() => this.props.toggleRate(this.props.id)}
+          style={{
+            fontSize: 10,
+            borderRadius: "50%",
+            display: "inline-block",
+            position: "absolute",
+            top: 1,
+            right: 1,
+          }}
+        >
+          ₹{this.props.rate}
+        </button>
+      );
+  }
 
   getColorForCount() {
     let classNameForCount = "badge m-2 badge-";
