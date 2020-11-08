@@ -12,10 +12,10 @@ class App extends Component {
   state = {
     counters: [
       { id: 1, value: 1, name: "Milk", rate: 25, isRateEdit: false },
-      { id: 2, value: 0, name: "GoodDay", rate: 25, isRateEdit: false },
-      { id: 3, value: 2, name: "Bread", rate: 25, isRateEdit: false },
-      { id: 4, value: 0, name: "Fruits", rate: 25, isRateEdit: false },
-      { id: 5, value: 0, name: "Vegetables", rate: 25, isRateEdit: false },
+      { id: 2, value: 0, name: "GoodDay", rate: 20, isRateEdit: false },
+      { id: 3, value: 2, name: "Bread", rate: 10, isRateEdit: false },
+      { id: 4, value: 0, name: "Fruits", rate: 140, isRateEdit: false },
+      { id: 5, value: 0, name: "Vegetables", rate: 75, isRateEdit: false },
     ],
     newId: 6,
     items: ["apple", "banana", "grape"],
